@@ -24,9 +24,55 @@ mutate(across(where(is.character), as.factor))
 
 A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
-## Males
+# Males
+## Methods
+
+Question: How effective is the new preventative vaccine on male individuals?            
+          
+$H_O$ This vaccine is not effective in preventing covid in males.         
+$H_A$ This vaccine is effective in preventing covid in males. 
+         
+infected~sex       
+categorical`categorical          
+So we will use the helper file CAT~CAT         
 
 
+
+```{r}
+Male <- FinalDat[FinalDat$sex=='M',]
+```   
+     
+## Graphical Descriptive Results    
+```{r}
+barchartGC(~infected + treatment,data=Male)
+barchartGC(~infected + treatment,data=Male, type="percent")
+
+```
+         
+The Graphical descriptive results shows that males who have taken the preventative vaccine are less likely to contract covid 19, while those who have taken the placebo are more likely to contract covid 19. 
+         
+## Numerical Descriptive Results
+         
+```{r}
+table1 <- xtabs(~infected +treatment, data=Male)
+rowPerc(table1)
+colPerc(table1)
+```
+         
+The numerical results shows that the males who received the vaccine, 26.20 have contracted covid, while 49.9 percent have not.
+The numerical results shows that the individuals who received the placebo,73.80 percent have contracted covid, while 50.01 have not. This means that the preventative vaccine is effective in preventing covid 19 in males.
+         
+## Inferntial Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```         
+         
+The Chi squared test shows the p-value of 0.00000000000000022, which is lower than the acceptable p value of 0.5 so we will reject the null hypothesis.         
+The fishers test shows that the p value is        
+          
 ## Females
 
 
