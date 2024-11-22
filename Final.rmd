@@ -60,27 +60,233 @@ colPerc(table1)
 ```
          
 The numerical results shows that the males who received the vaccine, 26.20 have contracted covid, while 49.9 percent have not.
-The numerical results shows that the individuals who received the placebo,73.80 percent have contracted covid, while 50.01 have not. This means that the preventative vaccine is effective in preventing covid 19 in males.
+The numerical results also shows that the individuals who received the placebo,73.80 percent have contracted covid, while 50.01 have not. This means that the preventative vaccine is effective in preventing covid 19 in males.
          
-## Inferntial Results 
+## Inferential Results 
 
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```         
-         
-The Chi squared test shows the p-value of 0.00000000000000022, which is lower than the acceptable p value of 0.5 so we will reject the null hypothesis.         
-The fishers test shows that the p value is        
+        
+The inferential results show that the Chi squared test shows the p-value of 0.00000000000000022.         
+The fishers test shows that the p value is 0.00000000000000022. Because both of the p-values are under the acceptable rate of 0.5 we will reject the null hypothesis.       
+The fishers exact test also shows that vaccinated men are 2.3 more times likely to not contract covid than unvaccinated men 
+
+## Conclusion        
+Question: How effective is the new preventative vaccine on male individuals?            
           
-## Females
+$H_O$ This vaccine is not effective in preventing covid in males.         
+$H_A$ This vaccine is effective in preventing covid in males. 
+         
+infected~sex       
+categorical`categorical          
+So we will use the helper file CAT~CAT 
+
+We will reject the null hypothesis because...          
+The Graphical descriptive results shows that males who have taken the preventative vaccine are less likely to contract covid 19, while those who have taken the placebo are more likely to contract covid 19.          
+The numerical results shows that the males who received the vaccine, 26.20 have contracted covid, while 49.9 percent have not.
+The numerical results also shows that the individuals who received the placebo,73.80 percent have contracted covid, while 50.01 have not. This means that the preventative vaccine is effective in preventing covid 19 in males.        
+The inferential results show that the Chi squared test shows the p-value of 0.00000000000000022.         
+The fishers test shows that the p value is 0.00000000000000022. Because both of the p-values are under the acceptable rate of 0.5 we will reject the null hypothesis.   
+The fishers exact test also shows that vaccinated men are 2.3 more times likely to not contract covid than unvaccinated men        
+
+# Females     
+## Methods         
+        
+Question: How effective is the new preventative vaccine on female individuals?            
+          
+$H_O$ This vaccine is not effective in preventing covid in females.         
+$H_A$ This vaccine is effective in preventing covid in females. 
+         
+infected~sex       
+categorical`categorical          
+So we will use the helper file CAT~CAT         
 
 
-## LGBTQ
 
+```{r}
+Female <- FinalDat[FinalDat$sex=='F',]
+```   
+      
 
+## Graphical Descriptive Results    
+```{r}
+barchartGC(~infected + treatment,data=Female)
+barchartGC(~infected + treatment,data=Female, type="percent")
 
-## Druggies
+```
+          
+The Graphical descriptive results shows that females who have taken the preventative vaccine are less likely to contract covid 19, while those who have taken the placebo are more likely to contract covid 19. 
+         
+## Numerical Descriptive Results
+         
+```{r}
+table1 <- xtabs(~infected +treatment, data=Female)
+rowPerc(table1)
+colPerc(table1)
+```
+        
+The numerical results shows that the Females who received the vaccine, 35.07 percent have contracted covid, while 50.06 percent have not.
+The numerical results also shows that the individuals who received the placebo,64.93 percent have contracted covid, while 49.94 have not. This means that the preventative vaccine is effective in preventing covid 19 in Females.
+         
+## Inferential Results 
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```         
+The inferential results show that the Chi squared test shows the p-value of 0.00000001914.         
+The fishers test shows that the p value is 0.00000001246. Because both of the p-values are under the acceptable rate of 0.5 we will reject the null hypothesis.       
+The fishers exact test also shows that vaccinated females are 1.8 more times likely to not contract covid than unvaccinated females.
 
-# Overall Results and Conclusions
+## Conclusion        
+        
+Question: How effective is the new preventative vaccine on female individuals?            
+          
+$H_O$ This vaccine is not effective in preventing covid in females.         
+$H_A$ This vaccine is effective in preventing covid in females. 
+         
+infected~sex       
+categorical`categorical          
+So we will use the helper file CAT~CAT         
+     
+We will reject the null hypothesis because...             
+The Graphical descriptive results shows that females who have taken the preventative vaccine are less likely to contract covid 19, while those who have taken the placebo are more likely to contract covid 19.           
+The numerical results shows that the Females who received the vaccine, 35.07 percent have contracted covid, while 50.06 percent have not.
+The numerical results also shows that the individuals who received the placebo,64.93 percent have contracted covid, while 49.94 have not. This means that the preventative vaccine is effective in preventing covid 19 in Females.
+The inferential results show that the Chi squared test shows the p-value of 0.00000001914.         
+The fishers test shows that the p value is 0.00000001246. Because both of the p-values are under the acceptable rate of 0.5 we will reject the null hypothesis.       
+The fishers exact test also shows that vaccinated females are 1.8 more times likely to not contract covid than unvaccinated females.   
+          
+# LGBTQ
+## Methods         
+        
+Question: How effective is the new preventative vaccine on LGBTQ individuals?            
+          
+$H_O$ This vaccine is not effective in preventing covid in LGBTQ individuals.         
+$H_A$ This vaccine is effective in preventing covid in LGBTQ individuals. 
+         
+infected~sex       
+categorical`categorical          
+So we will use the helper file CAT~CAT         
+         
+
+```{r}
+LGBTQ <- FinalDat[FinalDat$LGBTQ=='gay',]
+```   
+
+## Graphical Descriptive Results    
+```{r}
+barchartGC(~infected + treatment,data=LGBTQ)
+barchartGC(~infected + treatment,data=LGBTQ, type="percent")
+
+```
+        
+The Graphical descriptive results shows that LGBTQ individuals who have taken the preventative vaccine are less likely to contract covid 19, while those who have taken the placebo are more likely to contract covid 19.
+         
+## Numerical Descriptive Results
+         
+```{r}
+table1 <- xtabs(~infected +treatment, data=LGBTQ)
+rowPerc(table1)
+colPerc(table1)
+```        
+      
+The numerical results shows that the LGBTQ individuals who received the vaccine, 20.00 percent have contracted covid, while 51.67 percent have not.
+The numerical results also shows that the individuals who received the placebo,80.00 percent have contracted covid, while 48.33 have not. This means that the preventative vaccine is effective in preventing covid 19 in LGBTQ individuals. 
+        
+## Inferential Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```       
+      
+The inferential results show that the Chi squared test shows the p-value of 0.000002266.         
+The fishers test shows that the p value is 0.0000007269. Because both of the p-values are under the acceptable rate of 0.5 we will reject the null hypothesis.       
+The fishers exact test also shows that vaccinated LGBTQ individuals are 4.2 more times likely to not contract covid than unvaccinated LGBTQ individuals.
+      
+## Conclusion 
+        
+Question: How effective is the new preventative vaccine on LGBTQ individuals?            
+          
+$H_O$ This vaccine is not effective in preventing covid in LGBTQ individuals.         
+$H_A$ This vaccine is effective in preventing covid in LGBTQ individuals. 
+         
+infected~sex       
+categorical`categorical          
+So we will use the helper file CAT~CAT         
+         
+We will reject the null hypothesis because...       
+The Graphical descriptive results shows that LGBTQ individuals who have taken the preventative vaccine are less likely to contract covid 19, while those who have taken the placebo are more likely to contract covid 19.       
+The numerical results shows that the LGBTQ individuals who received the vaccine, 20.00 percent have contracted covid, while 51.67 percent have not.
+The numerical results also shows that the individuals who received the placebo,80.00 percent have contracted covid, while 48.33 have not. This means that the preventative vaccine is effective in preventing covid 19 in LGBTQ individuals.        
+The inferential results show that the Chi squared test shows the p-value of 0.000002266.         
+The fishers test shows that the p value is 0.0000007269. Because both of the p-values are under the acceptable rate of 0.5 we will reject the null hypothesis.       
+The fishers exact test also shows that vaccinated LGBTQ individuals are 4.2 more times likely to not contract covid than unvaccinated LGBTQ individuals.     
+         
+# Druggies      
+## Methods         
+        
+Question: How effective is the new preventative vaccine in drug users?            
+          
+$H_O$ This vaccine is not effective in preventing covid in drug users.         
+$H_A$ This vaccine is effective in preventing covid in drug users. 
+         
+infected~sex       
+categorical`categorical          
+So we will use the helper file CAT~CAT         
+         
+
+```{r}
+DrugUser <- FinalDat[FinalDat$DrugUser=='yes',]
+```   
+
+## Graphical Descriptive Results    
+```{r}
+barchartGC(~infected + treatment,data=DrugUser)
+barchartGC(~infected + treatment,data=DrugUser, type="percent")
+
+```
+        
+The Graphical descriptive results shows that drug users who have taken the preventative vaccine are more likely to contract covid 19, while those who have taken the placebo are less likely to contract covid 19.
+         
+## Numerical Descriptive Results
+         
+```{r}
+table1 <- xtabs(~infected +treatment, data=DrugUser)
+rowPerc(table1)
+colPerc(table1)
+```               
+       
+The numerical results shows that drug users who received the vaccine, 91.67 percent have contracted covid, while 49.00 percent have not.
+The numerical results also shows that the individuals who received the placebo,8.33 percent have contracted covid, while 51.00 have not. This means that the preventative vaccine is not effective in preventing covid 19 in Drug Users. 
+        
+## Inferential Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```    
+
+The inferential results show that the Chi squared test shows the p-value of 0.0000000001414.         
+The fishers test shows that the p value is 0.000000000003261. Because both of the p-values are under the acceptable rate of 0.5 we will reject the null hypothesis.       
+The fishers exact test also shows that vaccinated LGBTQ individuals are 0.08 more times likely to not contract covid than unvaccinated drug users
+       
+## Conclusion 
+        
+Question: How effective is the new preventative vaccine in drug users?            
+          
+$H_O$ This vaccine is not effective in preventing covid in drug users.         
+$H_A$ This vaccine is effective in preventing covid in drug users. 
+         
+infected~sex       
+categorical`categorical          
+So we will use the helper file CAT~CAT         
+         
+We will    the null hypotheis because...       
