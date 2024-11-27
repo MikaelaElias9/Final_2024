@@ -289,4 +289,10 @@ infected~sex
 categorical`categorical          
 So we will use the helper file CAT~CAT         
          
-We will    the null hypotheis because...       
+We will reject the null hypothesis because...              
+The Graphical descriptive results shows that drug users who have taken the preventative vaccine are more likely to contract covid 19, while those who have taken the placebo are less likely to contract covid 19.              
+The numerical results shows that drug users who received the vaccine, 91.67 percent have contracted covid, while 49.00 percent have not.
+The numerical results also shows that the individuals who received the placebo,8.33 percent have contracted covid, while 51.00 have not. This means that the preventative vaccine is not effective in preventing covid 19 in Drug Users.       
+The inferential results show that the Chi squared test shows the p-value of 0.0000000001414.         
+The fishers test shows that the p value is 0.000000000003261. Because both of the p-values are under the acceptable rate of 0.5 we will reject the null hypothesis.       
+The fishers exact test also shows that vaccinated LGBTQ individuals are 0.08 more times likely to not contract covid than unvaccinated drug users
